@@ -3,12 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RESTeam.org — Housing • Food • Medical Support</title>
+  <title>RESTTeam — Housing • Food • Medical Support</title>
   <meta name="description" content="RESTeam.org provides housing assistance, food support, and medical aid to individuals and families in need. Donate, get help, or partner with us." />
 
   <!-- Simple, fast, modern typography (no frameworks needed) -->
   <style>
-    :root{
+    :root {
+  --primary: #0B3C5D;   /* deep trust blue */
+  --accent: #F4B400;    /* warm gold */
+  --dark: #1A1A1A;      /* charcoal */
+  --muted: #5B6770;     /* muted gray text */
+  --light: #FFFFFF;
+  --soft: #F5F7FA;      /* light section background */
+}
+
+/* Base */
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* If you have a top hero section */
+.hero, header.hero {
+  background: linear-gradient(180deg, rgba(11,60,93,0.92), rgba(11,60,93,0.82));
+  color: var(--light);
+}
+
+/* Headlines */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h2, h3 {
+  color: var(--primary);
+}
+
+/* Paragraphs */
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Buttons / CTAs */
+button, .btn, .cta, a.cta {
+  background: var(--accent);
+  color: var(--dark);
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn:hover, .cta:hover, a.cta:hover {
+  filter: brightness(0.95);
+}
+
+/* Secondary button style */
+.btn-secondary, a.btn-secondary {
+  background: transparent;
+  color: var(--light);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Cards (if you have them) */
+.card, .panel, .feature {
+  background: var(--light);
+  border: 1px solid rgba(26,26,26,0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* Alternate section background to break the “all blue” feel */
+.section-alt, section.alt {
+  background: var(--soft);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+}
+a:hover {
+  text-decoration: underline;
+}
+
       --bg:#0b1220;
       --panel:#0f1b33;
       --text:#eaf0ff;
@@ -232,7 +311,7 @@
         <div class="brand">
           <div class="logo" aria-hidden="true"></div>
           <div>
-            <div style="font-size:14px; font-weight:900; letter-spacing:.2px;">RESTeam.org</div>
+            <div style="font-size:14px; font-weight:900; letter-spacing:.2px;">RESTTeam</div>
             <div style="font-size:12px; color:var(--muted); font-weight:650;">Housing • Food • Medical Support</div>
           </div>
         </div>
@@ -259,7 +338,7 @@
         <div class="panel">
           <h1 class="headline">Restoring stability, dignity, and hope — one family at a time.</h1>
           <p class="subhead">
-            RESTeam.org supports individuals and families through housing assistance, food support, and medical aid.
+            RESTTeam supports individuals and families through housing assistance, food support, and medical aid.
             Your contribution helps us respond quickly and serve with care.
           </p>
 
@@ -307,7 +386,7 @@
     <div class="wrap">
       <h2 class="section-title">Our Mission</h2>
       <p class="section-sub">
-        RESTeam.org exists to provide practical support—housing, food, medical assistance, and emergency relief—
+        RESTTeam exists to provide practical support—housing, food, medical assistance, and emergency relief—
         with dignity, speed, and accountability.
       </p>
 
@@ -436,7 +515,7 @@
         </div>
       </div>
       <div class="fine" style="margin-top:12px;">
-        © <span id="y"></span> RESTeam.org. All rights reserved.
+        © <span id="y"></span> RESTTeam. All rights reserved.
       </div>
     </div>
   </footer>
