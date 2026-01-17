@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RESTeam.org — Housing • Food • Medical Support</title>
+  <meta name="description" content="RESTeam.org provides housing assistance, food support, and medical aid to individuals and families in need. Donate, get help, or partner with us." />
+
+  <!-- Simple, fast, modern typography (no frameworks needed) -->
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1b33;
+      --text:#eaf0ff;
+      --muted:#b7c3e6;
+      --brand:#39d98a;
+      --brand2:#4aa3ff;
+      --accent:#ffb020;
+      --card:#101f3d;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(74,163,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(57,217,138,.20), transparent 60%),
+        radial-gradient(900px 600px at 70% 90%, rgba(255,176,32,.14), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand2), var(--brand));
+      box-shadow: var(--shadow);
+    }
+    .nav-links{
+      display:flex; gap:18px; align-items:center;
+      font-weight:600; color:var(--muted);
+    }
+    .nav-links a{ text-decoration:none; opacity:.9 }
+    .nav-links a:hover{ opacity:1; color:var(--text) }
+    .cta-row{display:flex; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      text-decoration:none;
+      font-weight:800;
+      transition: transform .08s ease, opacity .08s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px) }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand2), var(--brand));
+      border:0;
+      color:#06101f;
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero{padding:56px 0 34px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .headline{
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.08;
+      margin:0 0 14px;
+      letter-spacing:-.8px;
+    }
+    .subhead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: clamp(16px, 1.5vw, 18px);
+      max-width: 62ch;
+    }
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin: 16px 0 22px}
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top: 10px}
+    .panel{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3{margin:0 0 8px; font-size:16px}
+    .panel p{margin:0; color:var(--muted); font-weight:600}
+    .stat-grid{display:grid; gap:12px; margin-top:14px}
+    .stat{
+      border:1px solid var(--border);
+      border-radius: 16px;
+      padding:14px;
+      background: rgba(16,31,61,.55);
+    }
+    .stat .k{font-size:22px; font-weight:900}
+    .stat .d{color:var(--muted); font-weight:650; margin-top:4px; font-size:13px}
+
+    section{padding:38px 0}
+    .section-title{
+      font-size: 28px; margin:0 0 10px; letter-spacing:-.4px;
+    }
+    .section-sub{
+      margin:0 0 22px; color:var(--muted); font-weight:650; max-width: 70ch;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:16px;
+      background: rgba(16,31,61,.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
+      min-height: 170px;
+    }
+    .icon{
+      width:42px; height:42px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      background: rgba(255,255,255,.08);
+      border:1px solid var(--border);
+      margin-bottom:10px;
+    }
+    .card h4{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-weight:650; font-size:14px}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .callout{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:18px;
+      background: linear-gradient(135deg, rgba(74,163,255,.18), rgba(57,217,138,.14));
+      box-shadow: var(--shadow);
+    }
+    .callout h3{margin:0 0 8px}
+    .callout p{margin:0; color:var(--muted); font-weight:650}
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .field{display:flex; flex-direction:column; gap:8px; margin-bottom:12px}
+    .field label{font-weight:800; font-size:13px; color:var(--muted)}
+    input, textarea{
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:12px 12px;
+      font-weight:650;
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .fine{color:var(--muted); font-size:12px; font-weight:650; margin-top:10px}
+
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;
+    }
+    .foot a{color:var(--muted); text-decoration:none}
+    .foot a:hover{color:var(--text)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .cards{grid-template-columns: repeat(2, 1fr)}
+      .split{grid-template-columns: 1fr}
+      .contact-grid{grid-template-columns: 1fr}
+      .nav-links{display:none}
+    }
+    @media (max-width: 520px){
+      .cards{grid-template-columns: 1fr}
+      .btn{width:100%}
+      .cta-row{width:100%}
+      .hero-actions{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <div style="font-size:14px; font-weight:900; letter-spacing:.2px;">RESTeam.org</div>
+            <div style="font-size:12px; color:var(--muted); font-weight:650;">Housing • Food • Medical Support</div>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#mission">Mission</a>
+          <a href="#services">Services</a>
+          <a href="#impact">Impact</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="cta-row">
+          <!-- TODO: replace GOFUNDME_LINK with the real URL -->
+          <a class="btn primary" href="GOFUNDME_LINK" target="_blank" rel="noopener">Donate Now</a>
+          <a class="btn secondary" href="#contact">Get Help</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="panel">
+          <h1 class="headline">Restoring stability, dignity, and hope — one family at a time.</h1>
+          <p class="subhead">
+            RESTeam.org supports individuals and families through housing assistance, food support, and medical aid.
+            Your contribution helps us respond quickly and serve with care.
+          </p>
+
+          <div class="pill-row" aria-label="Key service areas">
+            <div class="pill">Housing Assistance</div>
+            <div class="pill">Food Support</div>
+            <div class="pill">Medical & Emergency Aid</div>
+            <div class="pill">Community Outreach</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="GOFUNDME_LINK" target="_blank" rel="noopener">Donate Now</a>
+            <a class="btn secondary" href="tel:3135233388">Call Jesse: (313) 523-3388</a>
+          </div>
+
+          <div class="fine">
+            Tip: Replace <b>GOFUNDME_LINK</b> in this file with your real donation page URL.
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h3>Quick Actions</h3>
+          <p>Donate, request help, or connect for partnerships and local support.</p>
+
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="k">Donate</div>
+              <div class="d">Support housing, food, and medical help.</div>
+            </div>
+            <div class="stat">
+              <div class="k">Get Help</div>
+              <div class="d">Reach out and we’ll respond as fast as possible.</div>
+            </div>
+            <div class="stat">
+              <div class="k">Partner</div>
+              <div class="d">Organizations and volunteers welcome.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <section id="mission">
+    <div class="wrap">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="section-sub">
+        RESTeam.org exists to provide practical support—housing, food, medical assistance, and emergency relief—
+        with dignity, speed, and accountability.
+      </p>
+
+      <div class="split">
+        <div class="callout">
+          <h3>Compassion in action</h3>
+          <p>We focus on immediate needs while helping people regain stability and momentum.</p>
+        </div>
+        <div class="callout">
+          <h3>Community-first support</h3>
+          <p>We work with local partners and direct outreach to keep help accessible and real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="section-title">What We Do</h2>
+      <p class="section-sub">
+        Our services are designed to meet urgent needs and provide a pathway back to stability.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h4>Housing Assistance</h4>
+          <p>Support for temporary placement, stability planning, and housing-related needs.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🍲</div>
+          <h4>Food Support</h4>
+          <p>Food resources and community distribution efforts to help families stay nourished.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🩺</div>
+          <h4>Medical & Emergency Aid</h4>
+          <p>Help connecting to care and support during emergencies and urgent health situations.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h4>Community Outreach</h4>
+          <p>Direct support, partnerships, and local programs that strengthen neighborhoods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact">
+    <div class="wrap">
+      <h2 class="section-title">Why Your Support Matters</h2>
+      <p class="section-sub">
+        Donations help us respond faster and support more families. Even small contributions can create real stability.
+      </p>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Transparent, direct impact</h3>
+          <p>We prioritize essential needs and urgent relief so support reaches people quickly.</p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="GOFUNDME_LINK" target="_blank" rel="noopener">Donate Now</a>
+            <a class="btn secondary" href="#contact">Volunteer / Partner</a>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Put help in motion</h3>
+          <p>Share the mission. Connect us with organizations, churches, clinics, and community groups.</p>
+          <div class="fine">Replace this section later with real impact metrics when available (families served, meals delivered, etc.).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">
+        Need support, want to partner, or have questions? Reach out.
+      </p>
+
+      <div class="contact-grid">
+        <div class="panel">
+          <h3>Call</h3>
+          <p><b>Jesse Miles</b><br/> <a href="tel:3135233388">(313) 523-3388</a></p>
+          <div class="fine">If you add an email later, we can wire the form to Formspree for free.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Send a message</h3>
+          <!-- Static form (no backend). Replace action with Formspree later if desired. -->
+          <form onsubmit="event.preventDefault(); alert('This demo form is not wired to a backend yet. Add Formspree to receive messages.');">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone or Email</label>
+              <input id="phone" name="phone" placeholder="How can we reach you?" required />
+            </div>
+            <div class="field">
+              <label for="msg">Message</label>
+              <textarea id="msg" name="message" placeholder="How can we help?" required></textarea>
+            </div>
+            <button class="btn primary" type="submit" style="width:100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="logo" aria-hidden="true" style="width:30px;height:30px;border-radius:10px;"></div>
+          <div>
+            <div style="font-weight:900;color:var(--text);">RESTeam.org</div>
+            <div style="font-size:12px;">Housing • Food • Medical Support</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#mission">Mission</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="GOFUNDME_LINK" target="_blank" rel="noopener"><b>Donate</b></a>
+        </div>
+      </div>
+      <div class="fine" style="margin-top:12px;">
+        © <span id="y"></span> RESTeam.org. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
